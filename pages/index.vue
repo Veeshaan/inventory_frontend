@@ -1,34 +1,67 @@
 <template>
-  <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">
-        inventory_frontend
-      </h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
+  <div class="flex h-screen w-full bg-gray-700">
+    <div class="m-auto w-full px-5 md:w-1/3">
+    <div class="pl-1 text-white font-medium text-2xl tracking-
+                wide text-center">
+                Inventory System {{ email }}
+                </div>
+      <form>
+        <div class="my-2">
+          <InputElement
+            labelName="EMAIL"
+            labelId="email"
+            inputType="email"
+            :model="email"
+            @input="email = $event"
+            />
+            </div>
+            <div class="my-2">
+
+            <inputElement
+                labelName="PASSWORD"
+                labelId="password"
+                inputType="password"
+                :model="password"
+                @input="password = $event"/>
+                </div>
+
+                <button type="button" class="
+                transition
+                duration-500 
+                ease-in-out 
+                bg-blue-600 
+                rounded-xs 
+                w-full
+                py-3
+                text-white 
+                font-sans
+                font-bold   
+                tracking-wide 
+                hover:bg-blue-700 
+                hover:text-gray-400 
+                active:outline-none 
+                focus:outline-none"> SIGN IN </button>
+      </form>
   </div>
+  </div>
+ 
 </template>
 
 <script>
-export default {}
+  import Logo from '~/components/items/Logo.vue'
+  import InputElement from "~/components/items/Input.vue";
+  export default {
+    components: {
+      Logo,
+      InputElement
+    },
+    data: function(){
+      return{
+        email:"",
+        password:""
+      }
+    }
+  }
 </script>
 
 <style>
